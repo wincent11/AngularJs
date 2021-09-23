@@ -1,7 +1,7 @@
 angular.module('myApp', [])
 		.controller('myCtrl', ['$scope', function($scope) {
-    		$scope.result = 0;
-    		$scope.firstNumber = $scope.result;
+            $scope.number = 0;
+
     		$scope.one = function() {
     			initNumber(1);
     		};
@@ -56,41 +56,43 @@ angular.module('myApp', [])
     		};
 
     		function initNumber(number) {
-    			if ($scope.result!=0) {
-        			$scope.result=$scope.result+''+number;
+    			if ($scope.number!=0) {
+        			$scope.number=$scope.number+''+number;
         		}
         		else{
-        			$scope.result=$scope.result+number;
+        			$scope.number=$scope.number+number;
         		}
     		};
 
     		function initAction(action){
-    			if ($scope.action==null) {
-					$scope.result=$scope.result+action;
+    			if ($scope.action == null) {
+                    if ($scope.result == null) {
+                        $scope.result = $scope.number;
+                    }
+					$scope.result = $scope.result + action;
 					$scope.action = action;
+                    $scope.number = 0;
 				}
     		}
 
     $scope.calculate = function(){
-    	$numbers = $scope.result.split($scope.action);
-    	$scope.firstNumber = $numbers[0];
-    	$scope.secondNumber = $numbers[1];
-
+        $scope.result = $scope.result;
     	switch($scope.action){
     	case '+':
-    		$scope.result = parseFloat($scope.firstNumber) + parseFloat($scope.secondNumber);
+    		$scope.result = parseFloat($scope.result) + parseFloat($scope.number);
     		break;
     	case '-':    	
-    		$scope.result = parseFloat($scope.firstNumber) - parseFloat($scope.secondNumber);
+    		$scope.result = parseFloat($scope.result) - parseFloat($scope.number);
     		break;
     	case '*':
-    		$scope.result = parseFloat($scope.firstNumber) * parseFloat($scope.secondNumber);
+    		$scope.result = parseFloat($scope.result) * parseFloat($scope.number);
     		break;
     	case '/':
-    		$scope.result = parseFloat($scope.firstNumber) / parseFloat($scope.secondNumber);
+    		$scope.result = parseFloat($scope.result) / parseFloat($scope.number);
     		break;
     	}
     	$scope.action = null;
+        $scope.number = 0;
     }
     
 }]);
