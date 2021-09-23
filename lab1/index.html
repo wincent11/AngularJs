@@ -6,6 +6,12 @@
 
 <div ng-controller="myCtrl">
 	<table>
+    <tr>
+  		<th class="output-container" colspan="3">
+  			<output type="text" >{{result}}</output><br>
+        <output type="text"> {{number}}</output>
+  		</th>
+    </tr>
 		<tr>
 			<th><button ng-click="one()">1</button></th>
   			<th><button ng-click="two()">2</button></th>
@@ -31,12 +37,6 @@
     		<th><button ng-click="devide()">/</button></th>
     		<th><button ng-click="calculate()">=</button></th>
     	</tr>
-  		<tr>
-  			<div class="output-container">
-  				<output type="text" >{{result}}</output>
-  			</div>
-
-  		</tr>
 	</table>
 </div>
 <script src="scripts.js"></script>
