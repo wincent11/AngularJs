@@ -52,7 +52,7 @@ angular.module('myApp', [])
     		};
 
     		$scope.devide = function() {
-    			initAction('');
+    			initAction('/');
     		};
 
     		function initNumber(number) {
