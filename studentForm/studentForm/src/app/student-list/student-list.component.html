@@ -1,0 +1,17 @@
+<p style="text-align: center"><b>The student list task</b></p>
+<div class="container">
+  <div class="group">
+    <p>First Name: <input type="text" [(ngModel)]="firstName"/><br></p>
+    <p>Last Name: <input type="text" [(ngModel)]="lastName"/><br></p>
+    <p>Born Date: <input type="date" [(ngModel)]="bornDate"><br></p>
+    <p>Deparment: <select name="department" [(ngModel)]="faculty">
+        <option value="Computer Scince">Computer Scince</option>
+        <option value="Mathematics">Mathematics</option>
+    </select><br></p>
+
+    <button type="button" (click)="addStudent()">Add Student</button>
+  </div>
+  <div class="student" *ngFor="let student of students">
+    <span>{{ student.firstName }} {{ student.lastName }} {{ student.bornDate }} {{student.faculty}}</span> <br>
+  </div>
+</div>
