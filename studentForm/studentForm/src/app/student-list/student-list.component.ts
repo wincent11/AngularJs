@@ -31,8 +31,8 @@ export class StudentListComponent {
       this.students.push(newRecord);
       this.firstName = '';
       this.lastName = '';
-      this.bornDate = '';
-      this.faculty = '';
+      this.bornDate = new Date().toISOString().slice(0, 10);
+      this.faculty = 'Mathematics';
     }
   }
 }
