@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vet Clinic
+{% endblock %}
+
+{% block body %}
+	<h1 style="text-align: center; color: white">Vet Clinic</h1>
+
+	<div class="row">
+		<div class="col-md-7"></div>
+		<div class="col-md-2">
+			<input class="form-control" id="name" name="name" type="text">
+		</div>
+		<div class="col-md-2">
+			<input class="btn btn-primary" onclick="searchByName()" type="submit" value="Find by name">
+		</div>
+	</div>
+	<script>
+		function searchByName() {
+			let name = document.getElementById("name").value;
+			let url = `http://localhost:8000/vet/${name}`;
+			window.location = url;
+			}
+	</script>
+
+	<div class="row">
+		<div class="col-md-2" style="margin-top: 10px;">
+			<a style="margin-left: 1em" class="btn btn-success" href="{{ path('vet_new') }}">Add New Appointment</a>
+		</div>
+		{# <div class="col-md-2"></div> #}
+		<div class="col-md-8 vertical-center">
+			<table class="table table-striped table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th class="text-center" scope="col">ID</th>
+						<th class="text-center" scope="col">Service</th>
+						<th class="text-center" scope="col">Price</th>
+						<th class="text-center" style="width: 30%" scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for vet in vet %}
+						<tr>
+							<th class="text-center" scope="row">{{ vet.id }}</th>
+							<td class="text-center">{{ vet.name }}</td>
+							<td class="text-center">{{ vet.price }}</td>
+							<td class="text-center">
+								<form method="post" action="{{ path('vet_delete', {'id': vet.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+									<a class="btn btn-info" href="{{ path('vet_show', {'id': vet.id}) }}">Select</a>
+									<a class="btn btn-primary" href="{{ path('vet_edit', {'id': vet.id}) }}">Update</a>
+									<input type="hidden" name="_method" value="DELETE">
+									<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ vet.id) }}">
+									<button class="btn btn-danger">Delete</button>
+								</form>
+
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="4" class="text-center">Rows not found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

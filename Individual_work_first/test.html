@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport</title>
+    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Jasmine References -->
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/jasmine-html.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.3/boot.min.js"></script>
+
+<!-- Angular and Angular Mock references -->
+
+<script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+
+<script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular-mocks.js"></script>
+</head>
+<body>
+    <header>
+        <div class="wrapper container">
+            <nav class="navbar navbar-expand-lg row">
+                <a class="navbar-brand col-xs-2" href="index.html">
+                    <img width="250px" height="200px" class="img-responsive" src="images/logo.png" alt="Resoturant">
+                </a>
+
+                <nav class="two">
+                    <ul>
+                        <li><a href="index.html"><i class="fa fa-home fa-fw"></i>Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="reviews.html">Q/A</a></li>
+                        <li><a href="test.html">Test</a></li>
+                        
+                    </ul>
+                </nav>
+
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="background-color: #B39C6B; color: antiquewhite; font-size: 20px; text-align: center;">
+    
+        <div ng-controller="CalculatorController">
+        <div>Test For Currency Converter </div>
+        <input ng-model="x" type="number">EURO
+        
+        <div ng-model="y"></div>
+        
+        <!-- the value for ngClick maps to the sum function within the controller body -->
+        
+        <input type="button" ng-click="converter()" value="="> 
+        <strong>{{z + " "}}</strong>LEI
+        
+
+        </div>   
+    </div>
+
+    <br> 
+    <script src="js/myApp.js"></script>
+</body>
+
+
+<script type="text/javascript">
+
+    angular.module('calculatorApp', []).controller('CalculatorController', function CalculatorController($scope) {
+    $scope.z = 0;
+    $scope.y = 19.85;
+    $scope.converter = function(x, y) { 
+    $scope.z = $scope.x * $scope.y; 
+    }; 
+    });
+    angular.element(document).ready(function() {
+    angular.bootstrap(document, ['calculatorApp']);
+    });
+    /* Test Code */
+    describe('calculator', function () {
+    beforeEach(angular.mock.module('calculatorApp'))
+    var $controller;
+    beforeEach(angular.mock.inject(function(_$controller_) {
+    $controller = _$controller_;
+}));
+    describe('converter', function () {
+    it('300 euro should equal 5955 lei', function () {
+    var $scope = {};
+    var controller = $controller('CalculatorController', { $scope: $scope })
+    $scope.x = 300;
+    $scope.y = 19.85;
+    $scope.converter();
+    expect($scope.z).toBe(5955);
+    });
+    });
+    });
+    </script>
+</html>

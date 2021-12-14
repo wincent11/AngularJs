@@ -1,0 +1,228 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #DBC8AF;
+}
+
+h2 {
+    font-family: monospace;
+    
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    transition: .5s linear;
+}
+
+button {
+    text-decoration: none;
+    font-family: 'Lora', serif;
+    transition: .5s linear;
+}
+
+i {
+    margin-right: 10px;
+}
+
+nav {
+    margin-left: 40px;
+    display: block;
+}
+
+.two ul {
+    background: #B39C6B;
+    overflow: hidden;
+    padding: 0;
+}
+
+.two li {
+    float: left;
+}
+
+.two a {
+    display: block;
+    padding: 15px;
+    border-right: 1px solid #B39C6B;
+    background: white;
+    color: #B39C6B;
+}
+.two button {
+    display: block;
+    padding: 15px;
+    border-right: 1px solid #B8AC7B;
+    background: #B8AC7B;
+    color: white;
+}
+
+.two a:hover {
+    background: #B8AC7B;
+
+}
+
+.two button:hover {
+    background: #B8AC7B;
+
+}
+
+.btn-editing {
+    border: 0;
+    background-color: white;
+}
+
+.btn-editing:disabled {
+    border: 0;
+    background-color: white;
+}
+
+.wrapper {
+    padding: 20px 0 10px 0;
+    background-color:#B38D1B;
+}
+
+a.nav-link {
+    color: black;
+    font-family: sans-serif;
+}
+
+a.nav-link:hover {
+    color: white;
+    background-color: black;
+}
+
+a {
+    color: #000;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+#contact2 {
+    letter-spacing: 3px;
+}
+
+.horizontal {
+    width: 100%;
+    margin-bottom: 50px;
+    border: 2px solid black;
+}
+
+#author a {
+    color: white;
+    text-decoration: none;
+}
+
+#myBtn {
+    padding: 18px 11px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+}
+
+.btn-success {
+    padding: 8px 11px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+}
+
+.btn-danger {
+    padding: 18px 11px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    color: #B38D1B;
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    border: 5px solid black;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+ .focus {
+        border-left: 7px solid #B38D1B !important;
+        background-color: #f2ebd8 !important;
+    }
+
+.close {
+    color: black;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: white;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
