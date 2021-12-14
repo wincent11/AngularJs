@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Rest
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center">Edit the Appointment</h1>
+
+	{{ include('rest/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}

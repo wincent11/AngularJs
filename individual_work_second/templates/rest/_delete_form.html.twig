@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('rest_delete', {'id': rest.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ rest.id) }}">
+	<a class="btn btn-primary" href="{{ path('rest_edit', {'id': rest.id}) }}">Update</a>
+	<button class="btn btn-danger">Delete</button>
+</form>
